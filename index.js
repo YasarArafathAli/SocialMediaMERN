@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 
 const typeDefs = require("./graphql/typeDefs");
 const resolvers  = require("./graphql/resolvers")
-const {MONGODB} = require("./congif");
+const {MONGODB} = require("./config");
 
 
 

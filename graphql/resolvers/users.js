@@ -1,7 +1,7 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../../models/User');
-const { SECRET_KEY } = require("../../congif");
+const { SECRET_KEY } = require("../../config");
 const { UserInputError } = require('apollo-server');
 const {validateRegisterInput , validateLoginInput} = require("../../util/validators")
 
@@ -30,19 +30,10 @@ module.exports = {
             }
 
 
-            bcrypt.compare(password, user.password, (err, data) => {
-                //if error than throw error
-                if (err) throw err
+            var match = bcrypt.compare(password, user.password);
 
-                //if both match than you can do anything
-                if (data) {
-                    return res.status(200).json({ msg: "Login success" })
-                } else {
-                    errors.general = "Wrong Credentials";
-                    throw new UserInputError("Wrong Credentials", { errors });
-                }
 
-            })
+
            
 
             const token = generateToken(user)
