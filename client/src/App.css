@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Grey+Qo&display=swap');
 .page-title {
   display: block !important;
   text-align: center;
@@ -13,4 +14,11 @@
 .ui.teal.button:focus,
 .ui.teal.buttons .button:focus {
   background-color: #00b5ad;
+}
+
+
+#heading{
+  font-size: 50px;
+font-family: 'Grey Qo',
+cursive;
 }

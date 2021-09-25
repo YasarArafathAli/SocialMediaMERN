@@ -19,6 +19,7 @@ function App() {
     <AuthProvider>
       <Router>
         <Container>
+          <h1 id = "heading" style={{ textAlign: "center" }}>Open Diary</h1>
           <MenuBar />
           <Route exact path="/" component={Home} />
           <AuthRoute exact path="/login" component={Login} />
