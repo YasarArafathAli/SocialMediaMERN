@@ -5,19 +5,22 @@ import { Grid, Transition } from 'semantic-ui-react';
 import { AuthContext } from '../context/auth';
 import PostCard from '../components/PostCard';
 import PostForm from '../components/PostForm';
+import Landing from '../components/Landing';
 import { FETCH_POSTS_QUERY } from '../util/graphql';
 
 function Home() {
   const { user } = useContext(AuthContext);
-  const {
-    loading,
-    data: { getPosts: posts }
-  } = useQuery(FETCH_POSTS_QUERY);
-
+  // const [posts, setPosts] = useState([]);
+  const { loading, data: { getPosts: posts } } = useQuery(FETCH_POSTS_QUERY);
+  // setPosts(data);
+ 
+  if (user === null) {
+    return <Landing />
+  }
   return (
     <Grid columns={3}>
       <Grid.Row className="page-title">
-        <h1>Recent Posts</h1>
+        <h1>Recent <span className = 'theme'>Posts</span> </h1>
       </Grid.Row>
       <Grid.Row>
         {user && (
@@ -29,8 +32,10 @@ function Home() {
           <h1>Loading posts..</h1>
         ) : (
           <Transition.Group>
-            {posts &&
+            {/* {forceUpdate()} */}
+                {posts &&
               posts.map((post) => (
+                post.college === user.college &&
                 <Grid.Column key={post.id} style={{ marginBottom: 20 }}>
                   <PostCard post={post} />
                 </Grid.Column>

@@ -2,6 +2,7 @@ module.exports.validateRegisterInput = (
   username,
   email,
   password,
+  college,
   confirmPassword
 ) => {
   const errors = {};
@@ -21,7 +22,9 @@ module.exports.validateRegisterInput = (
   } else if (password !== confirmPassword) {
     errors.confirmPassword = 'Passwords must match';
   }
-
+if (college.trim() === '') {
+    errors.college = 'College must not be empty';
+  }
   return {
     errors,
     valid: Object.keys(errors).length < 1

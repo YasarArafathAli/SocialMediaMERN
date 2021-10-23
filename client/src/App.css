@@ -5,7 +5,9 @@
   font-size: 2rem;
   margin-top: 10px;
 }
-
+.container{
+  width: 90vw !important;
+}
 .form-container {
   width: 400px;
   margin: auto;
@@ -18,7 +20,70 @@
 
 
 #heading{
-  font-size: 50px;
-font-family: 'Grey Qo',
-cursive;
+  font-size: 40px;
+font-family: 'Grey Qo', cursive;
+}
+
+.banner{
+  display: grid;
+  grid-template-columns : 1fr 1fr;
+}
+
+.banner .banner-info{
+  padding: 140px 0 20px 100px ;
+  /* text-align: center; */
+  /* display: flex; */
+  flex-direction: column;
+  align-items: center;
+}
+.banner .banner-info h1{
+  padding: 40px 0;
+  /* text-align: center; */
+  display: grid;
+  align-content: center;
+}
+.banner h1 .top {
+  font-size: 5rem;
+}
+.banner h1 .bottom{
+  font-size: 8rem;
+  margin-top: 2rem;
+  
+}
+.theme {
+  color : #ff6149;
+}
+
+.btn{
+  padding: 10px 20px;
+  background-color: #ff6149;
+  color: #000;
+  margin: 35px 20px 0 0;
+}
+@media all and (max-width: 1200px) {
+
+  .ui[class*="three column"].grid>.column:not(.row),
+  .ui[class*="three column"].grid>.row>.column {
+    margin: auto;
+    width: 45%;
+  }
+}
+
+@media all and (max-width: 768px) {
+
+  .ui[class*="three column"].grid>.column:not(.row),
+  .ui[class*="three column"].grid>.row>.column {
+    margin: auto;
+    width: 80%;
+  }
+
+  .ui.column.grid>[class*="ten wide"].column,
+  .ui.grid>.column.row>[class*="ten wide"].column,
+  .ui.grid>.row>[class*="ten wide"].column,
+  .ui.grid>[class*="ten wide"].column {
+    width: 90% !important;
+  }
+  .banner{
+    display:block;
+  }
 }

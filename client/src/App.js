@@ -16,10 +16,9 @@ import SinglePost from './pages/SinglePost';
 
 function App() {
   return (
-    <AuthProvider>
+    <AuthProvider className = "app">
       <Router>
-        <Container>
-          <h1 id = "heading" style={{ textAlign: "center" }}>Open Diary</h1>
+        <Container >
           <MenuBar />
           <Route exact path="/" component={Home} />
           <AuthRoute exact path="/login" component={Login} />

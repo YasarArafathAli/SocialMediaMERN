@@ -22,7 +22,11 @@ function MenuBar() {
       </Menu.Menu>
     </Menu>
   ) : (
-    <Menu pointing secondary size="massive" color="teal">
+      <Menu pointing secondary size="massive" color="orange">
+        <Link style={{color: "#000"}} to="/login"><h1 id = "heading" >Open <span className = 'theme' >Diary</span> </h1></Link>
+          
+
+      <Menu.Menu position="right">
       <Menu.Item
         name="home"
         active={activeItem === 'home'}
@@ -30,8 +34,6 @@ function MenuBar() {
         as={Link}
         to="/"
       />
-
-      <Menu.Menu position="right">
         <Menu.Item
           name="login"
           active={activeItem === 'login'}

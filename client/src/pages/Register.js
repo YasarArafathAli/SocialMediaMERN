@@ -14,6 +14,7 @@ function Register(props) {
     username: '',
     email: '',
     password: '',
+    college: '',
     confirmPassword: ''
   });
 
@@ -60,6 +61,15 @@ function Register(props) {
           onChange={onChange}
         />
         <Form.Input
+          label="College (USE COLLEGE CODE ONLY)"
+          placeholder="College.."
+          name="college"
+          type="text"
+          value={values.college}
+          error={errors.college ? true : false}
+          onChange={onChange}
+        />
+        <Form.Input
           label="Password"
           placeholder="Password.."
           name="password"
@@ -99,6 +109,7 @@ const REGISTER_USER = gql`
     $username: String!
     $email: String!
     $password: String!
+    $college:String!
     $confirmPassword: String!
   ) {
     register(
@@ -106,12 +117,14 @@ const REGISTER_USER = gql`
         username: $username
         email: $email
         password: $password
+        college : $college
         confirmPassword: $confirmPassword
       }
     ) {
       id
       email
       username
+      college
       createdAt
       token
     }
